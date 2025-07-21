@@ -9,10 +9,14 @@
         </div>
 
         <div class="nav-links">
-          <a @click="scrollToSection('about')" class="nav-link cursor-pointer">{{ $t('nav.about') }}</a>
-          <a @click="scrollToSection('skills')" class="nav-link cursor-pointer">{{ $t('nav.skills') }}</a>
-          <a @click="scrollToSection('projects')" class="nav-link cursor-pointer">{{ $t('nav.projects') }}</a>
-          <a @click="scrollToSection('contact')" class="nav-link cursor-pointer">{{ $t('nav.contact') }}</a>
+          <a
+              v-for="item in navItems"
+              :key="item.id"
+              @click="scrollToSection(item.id)"
+              class="nav-link cursor-pointer"
+          >
+            {{ $t(item.labelKey) }}
+          </a>
         </div>
 
         <div class="flex items-center space-x-4">
@@ -71,6 +75,15 @@ import ProjectsSection from '../components/ProjectsSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import ScrollToTop from "../components/ScrollToTop.vue";
 import LanguageSelector from "../components/LanguageSelector.vue";
+import {NavItem} from "../models/models.ts";
+import {ref} from "vue";
+
+const navItems=  ref<NavItem[]>([
+  { id: 'about', labelKey: 'nav.about' },
+  { id: 'skills', labelKey: 'nav.skills' },
+  { id: 'projects', labelKey: 'nav.projects' },
+  { id: 'contact', labelKey: 'nav.contact' },
+]);
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
@@ -85,7 +98,6 @@ const scrollToSection = (sectionId: string) => {
 const openCV = () => {
   window.open('/MaillotAymeric.pdf', '_blank')
 }
-
 </script>
 
 <style scoped>

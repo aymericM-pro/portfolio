@@ -1,3 +1,9 @@
+
+export interface NavItem {
+    id: string
+    labelKey: string
+}
+
 export interface ProjectTag {
     label?: string
     labelKey?: string

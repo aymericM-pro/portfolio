@@ -81,7 +81,7 @@ const projects = ref<Project[]>([
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .projects-section {
   @apply py-24 px-6;
 }
