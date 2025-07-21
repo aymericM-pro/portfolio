@@ -1,6 +1,48 @@
+<script setup lang="ts">
+
+import {ref} from "vue";
+import {Project} from "../models/models.ts";
+
+
+const projects = ref<Project[]>([
+  {
+    id: 'greencircle',
+    emoji: '♻️',
+    titleKey: 'projects.greencircle.title',
+    descKey: 'projects.greencircle.description',
+    tags: [
+      { labelKey: 'projects.greencircle.tags.entrepreneurial', class: 'entrepreneurial' },
+      { label: 'Spring Boot', class: 'spring' },
+      { label: 'Angular', class: 'angular' },
+    ],
+  },
+  {
+    id: 'perseus',
+    emoji: '🚀',
+    titleKey: 'projects.perseus.title',
+    descKey: 'projects.perseus.description',
+    tags: [
+      { labelKey: 'projects.perseus.tags.study', class: 'study' },
+      { labelKey: 'projects.perseus.tags.team', class: 'team' },
+      { label: 'Java', class: 'java' },
+    ],
+  },
+  {
+    id: 'noe',
+    emoji: '📋',
+    titleKey: 'projects.noe.title',
+    descKey: 'projects.noe.description',
+    tags: [
+      { labelKey: 'projects.noe.tags.team', class: 'team' },
+      { label: 'Spring Boot', class: 'spring' },
+      { label: 'Angular', class: 'angular' },
+    ],
+  },
+])
+</script>
+
 <template>
   <section id="projects" class="h-screen flex items-center projects-section relative overflow-hidden" style="background: transparent;">
-    <!-- Decorative elements -->
     <div class="absolute top-16 left-16 w-28 h-28 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-xl"></div>
     <div class="absolute bottom-16 right-16 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full blur-xl"></div>
 
@@ -11,57 +53,30 @@
       </div>
 
       <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image greencircle">
-            <span class="project-emoji">♻️</span>
+        <div
+            v-for="project in projects"
+            :key="project.id"
+            class="project-card"
+        >
+          <div :class="['project-image', project.id]">
+            <span class="project-emoji">{{ project.emoji }}</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">{{ $t('projects.greencircle.title') }}</h3>
-            <p class="project-description">
-              {{ $t('projects.greencircle.description') }}
-            </p>
+            <h3 class="project-title">{{ $t(project.titleKey) }}</h3>
+            <p class="project-description">{{ $t(project.descKey) }}</p>
             <div class="project-tags">
-              <span class="tag entrepreneurial">{{ $t('projects.greencircle.tags.entrepreneurial') }}</span>
-              <span class="tag spring">Spring Boot</span>
-              <span class="tag angular">Angular</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image perseus">
-            <span class="project-emoji">🚀</span>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">{{ $t('projects.perseus.title') }}</h3>
-            <p class="project-description">
-              {{ $t('projects.perseus.description') }}
-            </p>
-            <div class="project-tags">
-              <span class="tag study">{{ $t('projects.perseus.tags.study') }}</span>
-              <span class="tag team">{{ $t('projects.perseus.tags.team') }}</span>
-              <span class="tag java">Java</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-image noe">
-            <span class="project-emoji">📋</span>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">{{ $t('projects.noe.title') }}</h3>
-            <p class="project-description">
-              {{ $t('projects.noe.description') }}
-            </p>
-            <div class="project-tags">
-              <span class="tag team">{{ $t('projects.noe.tags.team') }}</span>
-              <span class="tag spring">Spring Boot</span>
-              <span class="tag angular">Angular</span>
+        <span
+            v-for="(tag, index) in project.tags"
+            :key="index"
+            :class="['tag', tag.class]"
+        >
+          {{ tag.labelKey ? $t(tag.labelKey) : tag.label }}
+        </span>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>
@@ -171,5 +186,3 @@
   @apply bg-white/10 text-white px-3 py-1 rounded text-sm hover:bg-white/20 transition-all duration-300;
 }
 </style>
-<script setup lang="ts">
-</script>

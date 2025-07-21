@@ -1,3 +1,31 @@
+<script lang="ts" setup>
+import type { ContactItem } from "../models/models.ts";
+import {ref} from "vue";
+
+const contactItems = ref<ContactItem[]>([
+  {
+    id: 'email',
+    icon: '📧',
+    labelKey: 'contact.email',
+    value: 'aymeric.maillot@example.com',
+  },
+  {
+    id: 'linkedin',
+    icon: '💼',
+    labelKey: 'contact.linkedin',
+    value: 'aymeric-maillot',
+    href: 'https://www.linkedin.com/in/aymeric-maillot-8638721b7/',
+  },
+  {
+    id: 'github',
+    icon: '🐙',
+    labelKey: 'contact.github',
+    value: 'aymericM-pro',
+    href: 'https://github.com/aymericM-pro',
+  },
+]);
+
+</script>
 <template>
   <section id="contact" class="h-screen flex items-center contact-section relative overflow-hidden" style="background: transparent;">
     <!-- Decorative elements -->
@@ -12,24 +40,22 @@
         </p>
 
         <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">📧</div>
-            <h3>{{ $t('contact.email') }}</h3>
-            <p>aymeric.maillot@example.com</p>
-          </div>
-          <div class="contact-item">
-            <a href="https://www.linkedin.com/in/aymeric-maillot-8638721b7/" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <div class="contact-icon">💼</div>
-              <h3>{{ $t('contact.linkedin') }}</h3>
-              <p>aymeric-maillot</p>
-            </a>
-          </div>
-          <div class="contact-item">
-            <a href="https://github.com/aymericM-pro" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <div class="contact-icon">🐙</div>
-              <h3>{{ $t('contact.github') }}</h3>
-              <p>aymericM-pro</p>
-            </a>
+          <div
+              v-for="item in contactItems"
+              :key="item.id"
+              class="contact-item"
+          >
+            <component
+                :is="item.href ? 'a' : 'div'"
+                :href="item.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+            >
+              <div class="contact-icon">{{ item.icon }}</div>
+              <h3>{{ $t(item.labelKey) }}</h3>
+              <p>{{ item.value }}</p>
+            </component>
           </div>
         </div>
 

@@ -46,7 +46,7 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .scroll-to-top-btn {
   @apply fixed bottom-8 right-8 z-50;
   @apply w-14 h-14 rounded-full;

@@ -60,5 +60,4 @@
 </template>
 
 <script setup lang="ts">
-// Section about avec i18n
 </script>

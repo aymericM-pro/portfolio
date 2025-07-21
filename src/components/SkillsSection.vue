@@ -1,3 +1,62 @@
+<script lang="ts" setup>
+import {SkillCategory} from "../models/models.ts";
+
+const skillCategories: SkillCategory[] = [
+  {
+    id: 'frontend',
+    icon: '💻',
+    titleKey: 'skills.frontend.title',
+    descriptionKey: 'skills.frontend.description',
+    tags: [
+      { name: 'Angular', type: 'primary' },
+      { name: 'TypeScript', type: 'primary' },
+      { name: 'Vue.js', type: 'secondary' },
+      { name: 'JavaScript', type: 'secondary' },
+      { name: 'HTML/CSS', type: 'secondary' },
+      { name: 'Tailwind CSS', type: 'secondary' },
+      { name: 'Karma', type: 'tool' },
+      { name: 'Jasmine', type: 'tool' },
+      { name: 'Vitest', type: 'tool' },
+      { name: 'ESLint', type: 'tool' },
+    ],
+  },
+  {
+    id: 'backend',
+    icon: '⚙️',
+    titleKey: 'skills.backend.title',
+    descriptionKey: 'skills.backend.description',
+    tags: [
+      { name: 'Java', type: 'primary' },
+      { name: 'Spring Boot', type: 'primary' },
+      { name: 'Kotlin', type: 'secondary' },
+      { name: 'Node.js', type: 'secondary' },
+      { name: 'PostgreSQL', type: 'secondary' },
+      { name: 'MySQL', type: 'secondary' },
+      { name: 'JUnit', type: 'tool' },
+      { name: 'Mockito', type: 'tool' },
+      { name: 'Maven', type: 'tool' },
+    ],
+  },
+  {
+    id: 'devops',
+    icon: '🚀',
+    titleKey: 'skills.devops.title',
+    descriptionKey: 'skills.devops.description',
+    tags: [
+      { name: 'Docker', type: 'primary' },
+      { name: 'Git', type: 'primary' },
+      { name: 'Kubernetes', type: 'secondary' },
+      { name: 'Google Cloud Platform', type: 'secondary' },
+      { name: 'Nginx', type: 'secondary' },
+      { name: 'DigitalOcean', type: 'secondary' },
+      { name: 'Terraform', type: 'tool' },
+      { name: 'Helm', type: 'tool' },
+      { name: 'GitLab CI', type: 'tool' },
+    ],
+  },
+];
+</script>
+
 <template>
   <section id="skills" class="skills-section relative overflow-hidden">
     <!-- Decorative elements -->
@@ -11,64 +70,30 @@
       </div>
 
       <div class="skills-grid">
-        <div class="skill-category frontend group">
+        <div
+            v-for="category in skillCategories"
+            :key="category.id"
+            class="skill-category group"
+            :class="category.id"
+        >
           <div class="category-header">
-            <div class="category-icon">💻</div>
-            <h3 class="category-title">{{ $t('skills.frontend.title') }}</h3>
-            <p class="category-description">{{ $t('skills.frontend.description') }}</p>
+            <div class="category-icon">{{ category.icon }}</div>
+            <h3 class="category-title">{{ $t(category.titleKey) }}</h3>
+            <p class="category-description">{{ $t(category.descriptionKey) }}</p>
           </div>
           <div class="skills-list">
-            <div class="skill-tag primary">Angular</div>
-            <div class="skill-tag primary">TypeScript</div>
-            <div class="skill-tag secondary">Vue.js</div>
-            <div class="skill-tag secondary">JavaScript</div>
-            <div class="skill-tag secondary">HTML/CSS</div>
-            <div class="skill-tag secondary">Tailwind CSS</div>
-            <div class="skill-tag tool">Karma</div>
-            <div class="skill-tag tool">Jasmine</div>
-            <div class="skill-tag tool">Vitest</div>
-            <div class="skill-tag tool">ESLint</div>
-          </div>
-        </div>
-
-        <div class="skill-category backend group">
-          <div class="category-header">
-            <div class="category-icon">⚙️</div>
-            <h3 class="category-title">{{ $t('skills.backend.title') }}</h3>
-            <p class="category-description">{{ $t('skills.backend.description') }}</p>
-          </div>
-          <div class="skills-list">
-            <div class="skill-tag primary">Java</div>
-            <div class="skill-tag primary">Spring Boot</div>
-            <div class="skill-tag secondary">Kotlin</div>
-            <div class="skill-tag secondary">Node.js</div>
-            <div class="skill-tag secondary">PostgreSQL</div>
-            <div class="skill-tag secondary">MySQL</div>
-            <div class="skill-tag tool">JUnit</div>
-            <div class="skill-tag tool">Mockito</div>
-            <div class="skill-tag tool">Maven</div>
-          </div>
-        </div>
-
-        <div class="skill-category devops group">
-          <div class="category-header">
-            <div class="category-icon">🚀</div>
-            <h3 class="category-title">{{ $t('skills.devops.title') }}</h3>
-            <p class="category-description">{{ $t('skills.devops.description') }}</p>
-          </div>
-          <div class="skills-list">
-            <div class="skill-tag primary">Docker</div>
-            <div class="skill-tag primary">Git</div>
-            <div class="skill-tag secondary">Kubernetes</div>
-            <div class="skill-tag secondary">Google Cloud Platform</div>
-            <div class="skill-tag secondary">Nginx</div>
-            <div class="skill-tag secondary">DigitalOcean</div>
-            <div class="skill-tag tool">Terraform</div>
-            <div class="skill-tag tool">Helm</div>
-            <div class="skill-tag tool">GitLab CI</div>
+            <div
+                v-for="(tag, index) in category.tags"
+                :key="index"
+                class="skill-tag"
+                :class="tag.type"
+            >
+              {{ tag.name }}
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>
