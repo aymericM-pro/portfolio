@@ -7,6 +7,10 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
 ]
 
 export const router = createRouter({
