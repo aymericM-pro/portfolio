@@ -1,10 +1,10 @@
 <template>
-  <section id="contact" class="contact-section relative overflow-hidden">
+  <section id="contact" class="h-screen flex items-center contact-section relative overflow-hidden" style="background: transparent;">
     <!-- Decorative elements -->
     <div class="absolute top-12 right-12 w-20 h-20 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full blur-xl"></div>
     <div class="absolute bottom-12 left-12 w-24 h-24 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-xl"></div>
-    
-    <div class="container">
+
+    <div class="container w-full">
       <div class="contact-content">
         <h2 class="contact-title">{{ $t('contact.title') }}</h2>
         <p class="contact-subtitle">
@@ -13,26 +13,25 @@
 
         <div class="contact-info">
           <div class="contact-item">
-              <div class="contact-icon">📧</div>
-              <h3>{{ $t('contact.email') }}</h3>
-              <p>aymeric.maillot@efrei.net</p>
+            <div class="contact-icon">📧</div>
+            <h3>{{ $t('contact.email') }}</h3>
+            <p>aymeric.maillot@example.com</p>
           </div>
           <div class="contact-item">
-            <a href="https://www.linkedin.com/in/aymeric-maillot-8638721b7/" target="_blank" class="contact-link">
+            <a href="https://www.linkedin.com/in/aymeric-maillot-8638721b7/" target="_blank" rel="noopener noreferrer" class="contact-link">
               <div class="contact-icon">💼</div>
               <h3>{{ $t('contact.linkedin') }}</h3>
-              <p>linkedin.com/in/aymericmaillot</p>
+              <p>aymeric-maillot</p>
             </a>
           </div>
           <div class="contact-item">
-            <a href="https://github.com/aymericM-pro" target="_blank" class="contact-link">
+            <a href="https://github.com/aymericM-pro" target="_blank" rel="noopener noreferrer" class="contact-link">
               <div class="contact-icon">🐙</div>
               <h3>{{ $t('contact.github') }}</h3>
-              <p>github.com/aymericmaillot</p>
+              <p>aymericM-pro</p>
             </a>
           </div>
         </div>
-
 
       </div>
     </div>
@@ -57,7 +56,7 @@
 }
 
 .contact-info {
-  @apply bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 mb-12 grid md:grid-cols-3 gap-8;
+  @apply bg-white/5 backdrop-blur-xl rounded-3xl p-8 mb-12 grid md:grid-cols-3 gap-8;
 }
 
 .contact-item {

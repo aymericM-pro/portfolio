@@ -1,15 +1,15 @@
 <template>
-  <section id="projects" class="projects-section relative overflow-hidden">
+  <section id="projects" class="h-screen flex items-center projects-section relative overflow-hidden" style="background: transparent;">
     <!-- Decorative elements -->
     <div class="absolute top-16 left-16 w-28 h-28 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-xl"></div>
     <div class="absolute bottom-16 right-16 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full blur-xl"></div>
-    
-    <div class="container">
+
+    <div class="container w-full">
       <div class="section-header">
         <h2 class="section-title">{{ $t('projects.title') }}</h2>
         <div class="section-divider"></div>
       </div>
-      
+
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-image greencircle">
@@ -92,7 +92,7 @@
 }
 
 .project-card {
-  @apply bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-300;
+  @apply bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10;
 }
 
 .project-image {
@@ -171,3 +171,5 @@
   @apply bg-white/10 text-white px-3 py-1 rounded text-sm hover:bg-white/20 transition-all duration-300;
 }
 </style>
+<script setup lang="ts">
+</script>

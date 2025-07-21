@@ -7,7 +7,7 @@
           <div class="brand-logo">AM</div>
           <span class="brand-name">Aymeric Maillot</span>
         </div>
-        
+
         <div class="nav-links">
           <a @click="scrollToSection('about')" class="nav-link cursor-pointer">{{ $t('nav.about') }}</a>
           <a @click="scrollToSection('skills')" class="nav-link cursor-pointer">{{ $t('nav.skills') }}</a>
@@ -16,19 +16,8 @@
         </div>
 
         <div class="flex items-center space-x-4">
-          <select 
-            v-model="currentLocale" 
-            @change="changeLanguage"
-            class="bg-white/10 backdrop-blur-xl text-white px-3 py-2 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 border border-white/20"
-          >
-            <option value="fr">🇫🇷 FR</option>
-            <option value="en">🇬🇧 EN</option>
-          </select>
-
-          <button
-              @click="openCV"
-              class="bg-white/10 backdrop-blur-xl text-white px-4 py-2 rounded-lg font-medium hover:bg-white/20 transition-all duration-300 border border-white/20"
-          >
+          <LanguageSelector />
+          <button @click="openCV" class="bg-white/10 text-white px-4 py-2 rounded-lg font-medium hover:bg-white/20 transition-all duration-200">
             {{ $t('nav.downloadCV') }}
           </button>
         </div>
@@ -37,7 +26,7 @@
 
     <!-- Hero Section -->
     <div class="section-wrapper">
-      <HeroSection @scrollTo="scrollToSection" />
+      <HeroSection />
     </div>
 
     <!-- About Section -->
@@ -68,20 +57,20 @@
         </p>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <ScrollToTop />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 import HeroSection from '../components/HeroSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import SkillsSection from '../components/SkillsSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 import ContactSection from '../components/ContactSection.vue'
-
-const { locale } = useI18n()
-const currentLocale = ref(locale.value)
+import ScrollToTop from "../components/ScrollToTop.vue";
+import LanguageSelector from "../components/LanguageSelector.vue";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
@@ -93,11 +82,6 @@ const scrollToSection = (sectionId: string) => {
   }
 }
 
-const changeLanguage = () => {
-  locale.value = currentLocale.value
-}
-
-
 const openCV = () => {
   window.open('/MaillotAymeric.pdf', '_blank')
 }
@@ -106,7 +90,8 @@ const openCV = () => {
 
 <style scoped>
 .landing-page {
-  @apply min-h-screen bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary;
+  @apply min-h-screen;
+  background: linear-gradient(135deg, #0A0117 0%, #150B22 50%, #0A0117 100%);
 }
 
 .navbar {
@@ -151,62 +136,5 @@ const openCV = () => {
 
 .footer-text {
   @apply text-gray-400;
-}
-
-/* Section transitions */
-.section-wrapper {
-  @apply relative;
-}
-
-.section-wrapper:nth-child(odd) {
-  background: linear-gradient(135deg, #0A0117 0%, #150B22 50%, #1a0b2e 100%);
-}
-
-.section-wrapper:nth-child(even) {
-  background: linear-gradient(135deg, #150B22 0%, #0A0117 50%, #2a1b3d 100%);
-}
-
-/* Transition douce entre sections */
-.section-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.section-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(180deg, 
-    rgba(180, 124, 246, 0.05) 0%, 
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-.section-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(0deg, 
-    rgba(254, 140, 175, 0.05) 0%, 
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-select {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-select option {
-  background-color: #0A0117;
-  color: white;
 }
 </style>

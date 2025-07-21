@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+  <section class="h-screen flex items-center justify-center px-6 relative overflow-hidden" style="background: transparent;">
     <!-- Subtle background elements -->
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-float"></div>
@@ -13,11 +13,11 @@
           {{ $t('hero.titleHighlight') }}
         </span>
       </h1>
-      
+
       <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
         {{ $t('hero.subtitle') }}
       </p>
-      
+
       <!-- Technologies -->
       <div class="flex flex-wrap justify-center gap-4 mb-12">
         <span class="tech-tag bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300">
@@ -35,22 +35,16 @@
       </div>
 
       <div class="flex justify-center">
-        <button
-            @click="emit('scrollTo', 'projects')"
-        class="bg-gradient-to-r from-[#B47CF6] to-[#FE8CAF] text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
-        >
-        {{ $t('hero.cta') }}
+        <button class="bg-gradient-to-r from-[#B47CF6] to-[#FE8CAF] text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
+          {{ $t('hero.cta') }}
         </button>
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits<{
-  (e: 'scrollTo', sectionId: string): void
-}>()
+// Hero section with subtle animations
 </script>
 
 <style scoped>

@@ -60,7 +60,7 @@
             <div class="skill-tag primary">Docker</div>
             <div class="skill-tag primary">Git</div>
             <div class="skill-tag secondary">Kubernetes</div>
-            <div class="skill-tag secondary">AWS</div>
+            <div class="skill-tag secondary">Google Cloud Platform</div>
             <div class="skill-tag secondary">Nginx</div>
             <div class="skill-tag secondary">DigitalOcean</div>
             <div class="skill-tag tool">Terraform</div>
