@@ -3,13 +3,13 @@
     <!-- Decorative elements -->
     <div class="absolute top-20 right-20 w-24 h-24 bg-gradient-to-r from-green-500/10 to-teal-500/10 rounded-full blur-xl"></div>
     <div class="absolute bottom-20 left-20 w-36 h-36 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-full blur-xl"></div>
-    
+
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">{{ $t('skills.title') }}</h2>
         <div class="section-divider"></div>
       </div>
-      
+
       <div class="skills-grid">
         <div class="skill-category frontend group">
           <div class="category-header">

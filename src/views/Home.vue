@@ -26,7 +26,7 @@
 
     <!-- Hero Section -->
     <div class="section-wrapper">
-      <HeroSection />
+      <HeroSection @cta-clicked="scrollToSection('projects')" />
     </div>
 
     <!-- About Section -->

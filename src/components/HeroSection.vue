@@ -35,7 +35,9 @@
       </div>
 
       <div class="flex justify-center">
-        <button class="bg-gradient-to-r from-[#B47CF6] to-[#FE8CAF] text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
+        <button
+            @click="handleCTAClick"
+            class="bg-gradient-to-r from-[#B47CF6] to-[#FE8CAF] text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
           {{ $t('hero.cta') }}
         </button>
       </div>
@@ -44,7 +46,11 @@
 </template>
 
 <script setup lang="ts">
-// Hero section with subtle animations
+const emit = defineEmits();
+
+const handleCTAClick = () => {
+  emit('cta-clicked');
+};
 </script>
 
 <style scoped>
