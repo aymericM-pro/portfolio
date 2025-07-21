@@ -1,8 +1,6 @@
 <script setup lang="ts">
-
 import {ref} from "vue";
-import {Project} from "../models/models.ts";
-
+import {Project} from "@/models/models.ts";
 
 const projects = ref<Project[]>([
   {

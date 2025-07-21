@@ -68,14 +68,14 @@
 </template>
 
 <script setup lang="ts">
-import HeroSection from '../components/HeroSection.vue'
-import AboutSection from '../components/AboutSection.vue'
-import SkillsSection from '../components/SkillsSection.vue'
-import ProjectsSection from '../components/ProjectsSection.vue'
-import ContactSection from '../components/ContactSection.vue'
-import ScrollToTop from "../components/ScrollToTop.vue";
-import LanguageSelector from "../components/LanguageSelector.vue";
-import {NavItem} from "../models/models.ts";
+import HeroSection from '@/components/HeroSection.vue'
+import AboutSection from '@/components/AboutSection.vue'
+import SkillsSection from '@/components/SkillsSection.vue'
+import ProjectsSection from '@/components/ProjectsSection.vue'
+import ContactSection from '@/components/ContactSection.vue'
+import ScrollToTop from "@/components/ScrollToTop.vue";
+import LanguageSelector from "@/components/LanguageSelector.vue";
+import {NavItem} from "@/models/models.ts";
 import {ref} from "vue";
 
 const navItems=  ref<NavItem[]>([

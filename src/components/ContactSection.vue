@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ContactItem } from "../models/models.ts";
+import type { ContactItem } from "@/models/models.ts";
 import {ref} from "vue";
 
 const contactItems = ref<ContactItem[]>([

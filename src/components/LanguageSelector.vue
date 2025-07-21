@@ -1,39 +1,3 @@
-<template>
-  <div class="language-selector" ref="selectorRef">
-    <button
-        @click="toggleDropdown"
-        class="language-button"
-    >
-      <span class="flag">{{ currentLanguage.flag }}</span>
-      <span class="code">{{ currentLanguage.code }}</span>
-      <svg
-          class="chevron"
-          :class="{ 'rotate': isOpen }"
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-      >
-        <polyline points="6,9 12,15 18,9"></polyline>
-      </svg>
-    </button>
-
-    <div v-if="isOpen" class="dropdown">
-      <button
-          v-for="language in languages"
-          :key="language.value"
-          @click="selectLanguage(language)"
-          class="dropdown-option"
-          :class="{ 'selected': language.value === currentLocale }"
-      >
-        <span class="flag">{{ language.flag }}</span>
-        <span class="code">{{ language.code }}</span>
-      </button>
-    </div>
-  </div>
-</template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
@@ -78,6 +42,43 @@ onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 </script>
+
+<template>
+  <div class="language-selector" ref="selectorRef">
+    <button
+        @click="toggleDropdown"
+        class="language-button"
+    >
+      <span class="flag">{{ currentLanguage.flag }}</span>
+      <span class="code">{{ currentLanguage.code }}</span>
+      <svg
+          class="chevron"
+          :class="{ 'rotate': isOpen }"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+      >
+        <polyline points="6,9 12,15 18,9"></polyline>
+      </svg>
+    </button>
+
+    <div v-if="isOpen" class="dropdown">
+      <button
+          v-for="language in languages"
+          :key="language.value"
+          @click="selectLanguage(language)"
+          class="dropdown-option"
+          :class="{ 'selected': language.value === currentLocale }"
+      >
+        <span class="flag">{{ language.flag }}</span>
+        <span class="code">{{ language.code }}</span>
+      </button>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .language-selector {

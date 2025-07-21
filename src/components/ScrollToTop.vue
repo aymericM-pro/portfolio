@@ -1,26 +1,3 @@
-<template>
-  <transition name="fade">
-    <button
-        v-if="showButton"
-        @click="scrollToTop"
-        class="scroll-to-top-btn"
-        aria-label="Remonter en haut"
-    >
-      <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          class="arrow-icon"
-      >
-        <polyline points="18,15 12,9 6,15"></polyline>
-      </svg>
-    </button>
-  </transition>
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
@@ -45,6 +22,29 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
+
+<template>
+  <transition name="fade">
+    <button
+        v-if="showButton"
+        @click="scrollToTop"
+        class="scroll-to-top-btn"
+        aria-label="Remonter en haut"
+    >
+      <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          class="arrow-icon"
+      >
+        <polyline points="18,15 12,9 6,15"></polyline>
+      </svg>
+    </button>
+  </transition>
+</template>
 
 <style lang="scss" scoped>
 .scroll-to-top-btn {

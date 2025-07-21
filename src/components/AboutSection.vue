@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <section id="about" class="h-screen flex items-center py-12 px-6 relative overflow-hidden" style="background: transparent;">
     <!-- Decorative elements -->
@@ -58,6 +61,3 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-</script>

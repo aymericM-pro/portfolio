@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {SkillCategory} from "../models/models.ts";
+import {SkillCategory} from "@/models/models.ts";
 
 const skillCategories: SkillCategory[] = [
   {
