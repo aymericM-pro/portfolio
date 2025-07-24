@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from "vue";
+<script lang="ts" setup>
+import { computed, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
@@ -40,22 +40,24 @@ onMounted(() => {
 onUnmounted(() => {
     document.removeEventListener("click", handleClickOutside);
 });
+
+defineExpose({ selectLanguage, currentLocale, isOpen });
 </script>
 
 <template>
-    <div class="language-selector" ref="selectorRef">
-        <button @click="toggleDropdown" class="language-button">
+    <div ref="selectorRef" class="language-selector">
+        <button class="language-button" @click="toggleDropdown">
             <span class="flag">{{ currentLanguage.flag }}</span>
             <span class="code">{{ currentLanguage.code }}</span>
             <svg
-                class="chevron"
                 :class="{ rotate: isOpen }"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
+                class="chevron"
                 fill="none"
+                height="12"
                 stroke="currentColor"
                 stroke-width="2"
+                viewBox="0 0 24 24"
+                width="12"
             >
                 <polyline points="6,9 12,15 18,9"></polyline>
             </svg>
@@ -65,9 +67,9 @@ onUnmounted(() => {
             <button
                 v-for="language in languages"
                 :key="language.value"
-                @click="selectLanguage(language)"
-                class="dropdown-option"
                 :class="{ selected: language.value === currentLocale }"
+                class="dropdown-option"
+                @click="selectLanguage(language)"
             >
                 <span class="flag">{{ language.flag }}</span>
                 <span class="code">{{ language.code }}</span>
