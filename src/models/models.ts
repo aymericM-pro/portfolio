@@ -16,7 +16,6 @@ export interface ProjectTag {
 
 export interface Project {
     id: string;
-    emoji: string;
     titleKey: string;
     descKey: string;
     tags: ProjectTag[];

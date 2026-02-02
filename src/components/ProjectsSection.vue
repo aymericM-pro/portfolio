@@ -5,7 +5,6 @@ import type { Project } from "@/models/models";
 const projects = ref<Project[]>([
     {
         id: "greencircle",
-        emoji: "♻️",
         titleKey: "projects.greencircle.title",
         descKey: "projects.greencircle.description",
         tags: [
@@ -21,7 +20,6 @@ const projects = ref<Project[]>([
     },
     {
         id: "perseus",
-        emoji: "🚀",
         titleKey: "projects.perseus.title",
         descKey: "projects.perseus.description",
         tags: [
@@ -35,7 +33,6 @@ const projects = ref<Project[]>([
     },
     {
         id: "noe",
-        emoji: "📋",
         titleKey: "projects.noe.title",
         descKey: "projects.noe.description",
         tags: [
@@ -52,7 +49,6 @@ const projects = ref<Project[]>([
     },
     {
         id: "tmdb",
-        emoji: "🎬",
         titleKey: "projects.tmdb.title",
         descKey: "projects.tmdb.description",
         tags: [
@@ -68,7 +64,6 @@ const projects = ref<Project[]>([
     },
     {
         id: "smartlanguage",
-        emoji: "🎧",
         titleKey: "projects.smartlanguage.title",
         descKey: "projects.smartlanguage.description",
         tags: [
@@ -84,7 +79,6 @@ const projects = ref<Project[]>([
     },
     {
         id: "football-api",
-        emoji: "⚽",
         titleKey: "projects.football.title",
         descKey: "projects.football.description",
         tags: [
@@ -122,7 +116,6 @@ const projects = ref<Project[]>([
                     <!-- HEADER -->
                     <header class="project-header">
                         <div class="title-row">
-                            <span class="emoji">{{ project.emoji }}</span>
                             <h3 class="project-title">
                                 {{ $t(project.titleKey) }}
                             </h3>
