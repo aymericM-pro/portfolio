@@ -131,6 +131,9 @@ const messages = {
             linkedin: "LinkedIn",
             github: "GitHub",
         },
+        footer: {
+            copyright: "Tous droits réservés.",
+        },
     },
 
     en: {
@@ -257,6 +260,9 @@ const messages = {
             email: "Email",
             linkedin: "LinkedIn",
             github: "GitHub",
+        },
+        footer: {
+            copyright: "All rights reserved.",
         },
     },
 };
