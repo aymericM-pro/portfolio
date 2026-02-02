@@ -3,10 +3,15 @@ export interface NavItem {
     labelKey: string;
 }
 
+export interface ProjectLink {
+    type: "code" | "demo" | "deploy";
+    url?: string;
+}
+
 export interface ProjectTag {
     label?: string;
     labelKey?: string;
-    class: string;
+    class: "context" | "tech";
 }
 
 export interface Project {
@@ -15,6 +20,7 @@ export interface Project {
     titleKey: string;
     descKey: string;
     tags: ProjectTag[];
+    links?: ProjectLink[];
 }
 
 export interface SkillTag {

@@ -9,6 +9,7 @@ const messages = {
             contact: "Contact",
             downloadCV: "Télécharger CV",
         },
+
         hero: {
             title: "Développeur",
             titleHighlight: "Fullstack",
@@ -17,34 +18,48 @@ const messages = {
         },
         about: {
             title: "À propos",
-            jobTitle: "Software Engineer Fullstack",
+            jobTitle: "Développeur Fullstack",
             description:
-                "Diplômé de l'EFREI, développeur passionné avec 2 ans d'expérience en Java & Angular. Deux stages d'un an chez ICPF, puis expériences chez Harvest et au Luxembourg.",
+                "Développeur orienté produit, sensible à la qualité du code, aux architectures propres et aux projets concrets à impact.",
+
             badges: {
                 graduate: "Diplômé EFREI",
-                experience: "2 ans d'expérience",
-                international: "Expérience internationale",
+                experience: "Expérience professionnelle",
+                international: "International",
             },
+
             passions: {
-                title: "Mes passions",
+                title: "Ce qui me motive",
+
                 code: {
                     title: "Code",
-                    description: "Propre & performant",
+                    description:
+                        "Concevoir des applications claires, maintenables et robustes.",
                 },
+
                 craft: {
                     title: "Craft",
-                    description: "Art du développement",
+                    description:
+                        "Amélioration continue, clean code et bonnes pratiques.",
                 },
+
                 nocode: {
                     title: "No-Code",
-                    description: "Automatisation",
+                    description:
+                        "Prototypage rapide d’idées et validation de concepts.",
                 },
+
                 devops: {
                     title: "DevOps",
-                    description: "Déploiement continu",
+                    description:
+                        "Automatisation, CI/CD et déploiement cloud.",
                 },
             },
         },
+
+        /* =======================
+           SKILLS (EXISTANT)
+        ======================= */
         skills: {
             title: "Compétences",
             frontend: {
@@ -62,86 +77,62 @@ const messages = {
         },
         projects: {
             title: "Projets",
+            subtitle:
+                "Quelques projets représentatifs de mon parcours et de mes compétences",
+
+            tags: {
+                entrepreneurial: "Projet entrepreneurial",
+                study: "Projet de fin d’étude",
+                team5: "Équipe de 5",
+                team20: "Équipe de 20",
+                personal: "Projet personnel",
+            },
+
             greencircle: {
                 title: "GreenCircle",
                 description:
-                    "Plateforme mettant en relation les entreprises du BTP avec les centres de revalorisation pour faciliter la transition des déchets.",
-                tags: {
-                    entrepreneurial: "Projet entrepreneurial",
-                },
+                    "Plateforme mettant en relation les entreprises du BTP avec les centres de revalorisation afin de faciliter la gestion et la transition des déchets.",
             },
+
             perseus: {
                 title: "Perseus",
                 description:
-                    "Programme CNES d'amélioration du module vidéo de fusée pour analyser le comportement au décollage (720p → 1080p).",
-                tags: {
-                    study: "Projet de fin d'étude",
-                    team: "Équipe de 5",
-                },
+                    "Projet CNES visant l’amélioration d’un module vidéo pour l’analyse du comportement d’une fusée lors du décollage (720p → 1080p).",
             },
+
             noe: {
                 title: "Noé",
                 description:
-                    "Application de digitalisation complète du processus d'audit, de la demande de certification à l'émission du certificat.",
-                tags: {
-                    team: "Équipe de 20",
-                },
+                    "Plateforme SaaS de digitalisation complète du processus de certification, de la demande d’audit jusqu’à l’émission du certificat.",
             },
-            actions: {
-                view: "Voir",
-                code: "Code",
+
+            tmdb: {
+                title: "Movie DB API Client",
+                description:
+                    "Client Java pour l’API TMDB permettant de récupérer films, crédits, vidéos et collections via une architecture orientée services.",
+            },
+
+            smartlanguage: {
+                title: "Smart Language",
+                description:
+                    "Plateforme intelligente de test de langue permettant d’évaluer automatiquement les compétences orales et écrites à l’aide d’IA et de traitements audio.",
+            },
+
+            football: {
+                title: "Football Results API",
+                description:
+                    "API permettant de récupérer les derniers résultats, classements et statistiques de football via Football API, conçue selon une architecture hexagonale.",
             },
         },
         contact: {
-            title: "Travaillons ensemble",
-            subtitle:
-                "Vous avez un projet en tête ? Discutons de la façon dont je peux vous aider.",
+            title: "Contact",
+            subtitle: "Disponible pour échanger ou collaborer",
             email: "Email",
             linkedin: "LinkedIn",
             github: "GitHub",
         },
-        footer: {
-            copyright: "© 2024 Aymeric Maillot. Développeur Fullstack Java & Angular.",
-        },
-        aboutPage: {
-            title: "Détails techniques",
-            subtitle:
-                "Découvrez les technologies et outils que j'utilise pour créer des applications exceptionnelles",
-            backButton: "← Retour",
-            technologies: {
-                java: {
-                    title: "Java & Spring",
-                    description:
-                        "Framework robuste pour le développement backend avec Spring Boot, JPA et sécurité intégrée",
-                },
-                angular: {
-                    title: "Angular & TypeScript",
-                    description:
-                        "Framework frontend moderne avec TypeScript pour des applications SPA performantes et maintenables",
-                },
-                database: {
-                    title: "Bases de données",
-                    description:
-                        "PostgreSQL, MySQL et Redis pour la persistance et la mise en cache des données",
-                },
-                docker: {
-                    title: "Docker & DevOps",
-                    description:
-                        "Containerisation et déploiement automatisé avec Docker, Kubernetes et CI/CD",
-                },
-                cloud: {
-                    title: "Cloud & Infrastructure",
-                    description:
-                        "DigitalOcean, Terraform et Helm pour l'infrastructure as code et le déploiement Kubernetes",
-                },
-                tools: {
-                    title: "Outils & Tests",
-                    description:
-                        "JUnit, Jest, Git, Maven/Gradle pour un développement de qualité et collaboratif",
-                },
-            },
-        },
     },
+
     en: {
         nav: {
             about: "About",
@@ -150,6 +141,7 @@ const messages = {
             contact: "Contact",
             downloadCV: "Download CV",
         },
+
         hero: {
             title: "Fullstack",
             titleHighlight: "Developer",
@@ -158,31 +150,41 @@ const messages = {
         },
         about: {
             title: "About",
-            jobTitle: "Fullstack Software Engineer",
+            jobTitle: "Fullstack Developer",
             description:
-                "EFREI graduate, passionate developer with 2 years of experience in Java & Angular. Two one-year internships at ICPF, then experiences at Harvest and in Luxembourg.",
+                "Product-oriented developer focused on clean code, solid architectures and meaningful projects.",
+
             badges: {
                 graduate: "EFREI Graduate",
-                experience: "2 years experience",
-                international: "International experience",
+                experience: "Professional experience",
+                international: "International",
             },
+
             passions: {
-                title: "My passions",
+                title: "What drives me",
+
                 code: {
                     title: "Code",
-                    description: "Clean & performant",
+                    description:
+                        "Designing clean, maintainable and robust applications.",
                 },
+
                 craft: {
                     title: "Craft",
-                    description: "Art of development",
+                    description:
+                        "Continuous improvement, clean code and best practices.",
                 },
+
                 nocode: {
                     title: "No-Code",
-                    description: "Automation",
+                    description:
+                        "Rapid prototyping and idea validation.",
                 },
+
                 devops: {
                     title: "DevOps",
-                    description: "Continuous deployment",
+                    description:
+                        "Automation, CI/CD and cloud deployment.",
                 },
             },
         },
@@ -203,89 +205,65 @@ const messages = {
         },
         projects: {
             title: "Projects",
+            subtitle: "Some representative projects from my journey",
+
+            tags: {
+                entrepreneurial: "Entrepreneurial project",
+                study: "Final year project",
+                team5: "Team of 5",
+                team20: "Team of 20",
+                personal: "Personal project",
+            },
+
             greencircle: {
                 title: "GreenCircle",
                 description:
                     "Platform connecting construction companies with recycling centers to facilitate waste transition.",
-                tags: {
-                    entrepreneurial: "Entrepreneurial project",
-                },
             },
+
             perseus: {
                 title: "Perseus",
                 description:
-                    "CNES program to improve rocket video module for launch behavior analysis (720p → 1080p).",
-                tags: {
-                    study: "Final year project",
-                    team: "Team of 5",
-                },
+                    "CNES project improving a rocket video module for launch behavior analysis.",
             },
+
             noe: {
                 title: "Noé",
                 description:
-                    "Complete digitalization application for audit process, from certification request to certificate issuance.",
-                tags: {
-                    team: "Team of 20",
-                },
+                    "Complete SaaS platform for audit certification digitalization.",
             },
-            actions: {
-                view: "View",
-                code: "Code",
+
+            tmdb: {
+                title: "Movie DB API Client",
+                description:
+                    "Java client for the TMDB API using a service-oriented architecture.",
+            },
+
+            smartlanguage: {
+                title: "Smart Language",
+                description:
+                    "AI-powered language testing platform evaluating oral and written skills.",
+            },
+
+            football: {
+                title: "Football Results API",
+                description:
+                    "API providing football results, standings and statistics using a hexagonal architecture.",
             },
         },
         contact: {
-            title: "Let's work together",
-            subtitle: "Have a project in mind? Let's discuss how I can help you.",
+            title: "Contact",
+            subtitle: "Open to discussion or collaboration",
             email: "Email",
             linkedin: "LinkedIn",
             github: "GitHub",
-        },
-        footer: {
-            copyright: "© 2024 Aymeric Maillot. Fullstack Java & Angular Developer.",
-        },
-        aboutPage: {
-            title: "Technical details",
-            subtitle:
-                "Discover the technologies and tools I use to create exceptional applications",
-            backButton: "← Back",
-            technologies: {
-                java: {
-                    title: "Java & Spring",
-                    description:
-                        "Robust framework for backend development with Spring Boot, JPA and integrated security",
-                },
-                angular: {
-                    title: "Angular & TypeScript",
-                    description:
-                        "Modern frontend framework with TypeScript for performant and maintainable SPA applications",
-                },
-                database: {
-                    title: "Databases",
-                    description: "PostgreSQL, MySQL and Redis for data persistence and caching",
-                },
-                docker: {
-                    title: "Docker & DevOps",
-                    description:
-                        "Containerization and automated deployment with Docker, Kubernetes and CI/CD",
-                },
-                cloud: {
-                    title: "Cloud & Infrastructure",
-                    description:
-                        "DigitalOcean, Terraform and Helm for infrastructure as code and Kubernetes deployment",
-                },
-                tools: {
-                    title: "Tools & Testing",
-                    description:
-                        "JUnit, Jest, Git, Maven/Gradle for quality and collaborative development",
-                },
-            },
         },
     },
 };
 
 export const i18n = createI18n({
+    legacy: false,
     locale: "fr",
     fallbackLocale: "en",
     messages,
-    legacy: false,
 });

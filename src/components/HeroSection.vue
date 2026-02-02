@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+const emit = defineEmits();
+
+const handleCTAClick = () => {
+    emit("cta-clicked");
+};
+</script>
+
 <template>
     <section
         class="h-screen flex items-center justify-center px-6 relative overflow-hidden"
@@ -53,8 +61,8 @@
 
             <div class="flex justify-center">
                 <button
-                    @click="handleCTAClick"
                     class="bg-gradient-to-r from-[#B47CF6] to-[#FE8CAF] text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
+                    @click="handleCTAClick"
                 >
                     {{ $t("hero.cta") }}
                 </button>
@@ -63,13 +71,6 @@
     </section>
 </template>
 
-<script setup lang="ts">
-const emit = defineEmits();
-
-const handleCTAClick = () => {
-    emit("cta-clicked");
-};
-</script>
 
 <style scoped>
 @keyframes float {
