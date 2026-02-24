@@ -4,6 +4,7 @@ import { router } from "@/router";
 import { i18n } from "@/i18n";
 import "@/style.css";
 import App from "@/App.vue";
+import "@mdi/font/css/materialdesignicons.min.css";
 
 const app = createApp(App);
 const pinia = createPinia();
