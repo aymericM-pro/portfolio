@@ -144,7 +144,6 @@ const messages = {
             contact: "Contact",
             downloadCV: "Download CV",
         },
-
         hero: {
             title: "Fullstack",
             titleHighlight: "Developer",
@@ -154,15 +153,12 @@ const messages = {
         about: {
             title: "About",
             jobTitle: "Fullstack Developer",
-            description:
-                "Product-oriented developer focused on clean code, solid architectures and meaningful projects.",
-
+            description: "Product-oriented developer focused on clean code, solid architectures and meaningful projects.",
             badges: {
                 graduate: "EFREI Graduate",
                 experience: "Professional experience",
                 international: "International",
             },
-
             passions: {
                 title: "What drives me",
 
@@ -171,7 +167,6 @@ const messages = {
                     description:
                         "Designing clean, maintainable and robust applications.",
                 },
-
                 craft: {
                     title: "Craft",
                     description:
@@ -209,7 +204,6 @@ const messages = {
         projects: {
             title: "Projects",
             subtitle: "Some representative projects from my journey",
-
             tags: {
                 entrepreneurial: "Entrepreneurial project",
                 study: "Final year project",
@@ -217,37 +211,31 @@ const messages = {
                 team20: "Team of 20",
                 personal: "Personal project",
             },
-
             greencircle: {
                 title: "GreenCircle",
                 description:
                     "Platform connecting construction companies with recycling centers to facilitate waste transition.",
             },
-
             perseus: {
                 title: "Perseus",
                 description:
                     "CNES project improving a rocket video module for launch behavior analysis.",
             },
-
             noe: {
                 title: "Noé",
                 description:
                     "Complete SaaS platform for audit certification digitalization.",
             },
-
             tmdb: {
                 title: "Movie DB API Client",
                 description:
                     "Java client for the TMDB API using a service-oriented architecture.",
             },
-
             smartlanguage: {
                 title: "Smart Language",
                 description:
                     "AI-powered language testing platform evaluating oral and written skills.",
             },
-
             football: {
                 title: "Football Results API",
                 description:

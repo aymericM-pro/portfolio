@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import type { Project } from "@/models/models";
+import AppCaroussel from "@/components/design-system/AppCaroussel.component.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const projects = ref<Project[]>([
     {
@@ -64,8 +68,8 @@ const projects = ref<Project[]>([
     },
     {
         id: "smartlanguage",
-        titleKey: "projects.smartlanguage.title",
-        descKey: "projects.smartlanguage.description",
+        titleKey: "projects.smartlanguage.md.title",
+        descKey: "projects.smartlanguage.md.description",
         tags: [
             { labelKey: "projects.tags.personal", class: "context" },
             { label: "Python", class: "tech" },
@@ -93,6 +97,11 @@ const projects = ref<Project[]>([
         links: [{ type: "code" }],
     },
 ]);
+
+const goToProject = (id: string) => {
+    router.push(`/projects/${id}`);
+};
+
 </script>
 
 <template>
@@ -106,70 +115,59 @@ const projects = ref<Project[]>([
                 </p>
             </div>
 
+            <AppCaroussel :items="projects">
+                <template #default="{ item }">
+                    <article class="project-card" @click="goToProject(item.id)">
+                        <header class="project-header">
+                            <div class="title-row">
+                                <h3 class="project-title">
+                                    {{ $t(item.titleKey) }}
+                                </h3>
+                            </div>
 
-            <div class="projects-grid">
-                <article
-                    v-for="project in projects"
-                    :key="project.id"
-                    class="project-card"
-                >
-                    <!-- HEADER -->
-                    <header class="project-header">
-                        <div class="title-row">
-                            <h3 class="project-title">
-                                {{ $t(project.titleKey) }}
-                            </h3>
-                        </div>
+                            <div class="project-context">
+                                <span
+                                    v-for="(tag, i) in item.tags.filter(
+                                        (t: any) => t.class === 'context',
+                                    )"
+                                    :key="i"
+                                    class="tag context"
+                                    @click="goToProject(item.id)"
+                                >
+                                    {{ $t(tag.labelKey!) }}
+                                </span>
+                            </div>
+                        </header>
 
-                        <!-- CONTEXT TAGS (i18n) -->
-                        <div class="project-context">
+                        <p class="project-description">
+                            {{ $t(item.descKey) }}
+                        </p>
+
+                        <div class="project-techs">
                             <span
-                                v-for="(tag, i) in project.tags.filter(t => t.class === 'context')"
+                                v-for="(tag, i) in item.tags.filter(
+                                    (t: any) => t.class === 'tech',
+                                )"
                                 :key="i"
-                                class="tag context"
+                                class="tag tech"
                             >
-                                {{ $t(tag.labelKey!) }}
+                                {{ tag.label }}
                             </span>
                         </div>
-                    </header>
-
-                    <!-- DESCRIPTION -->
-                    <p class="project-description">
-                        {{ $t(project.descKey) }}
-                    </p>
-
-                    <!-- TECH STACK (texte brut) -->
-                    <div class="project-techs">
-                        <span
-                            v-for="(tag, i) in project.tags.filter(t => t.class === 'tech')"
-                            :key="i"
-                            class="tag tech"
-                        >
-                            {{ tag.label }}
-                        </span>
-                    </div>
-
-                    <!-- ACTIONS -->
-                    <div
-                        v-if="project.links?.length"
-                        class="project-actions"
-                    >
-                        <button
-                            v-for="(link, i) in project.links"
-                            :key="i"
-                            class="btn"
-                        >
-                            {{
-                                link.type === "code"
-                                    ? "Code"
-                                    : link.type === "deploy"
-                                        ? "Site"
-                                        : "Démo"
-                            }}
-                        </button>
-                    </div>
-                </article>
-            </div>
+                        
+                        <div v-if="item.links?.length" class="project-actions">
+                            <div class="project-actions">
+                                <button
+                                    class="btn"
+                                    @click.stop="goToProject(item.id)"
+                                >
+                                    Voir plus
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </template>
+            </AppCaroussel>
         </div>
     </section>
 </template>
@@ -199,13 +197,10 @@ const projects = ref<Project[]>([
     @apply text-gray-400 text-sm;
 }
 
-.projects-grid {
-    @apply grid gap-4 md:grid-cols-2;
-}
-
 .project-card {
     @apply border border-white/10 rounded-md p-4
-    bg-white/5 hover:bg-white/10;
+    bg-white/5 hover:bg-white/10 transition-colors duration-200
+    flex flex-col h-full;
 }
 
 .project-header {
@@ -221,7 +216,7 @@ const projects = ref<Project[]>([
 }
 
 .project-description {
-    @apply text-gray-300 text-sm leading-snug mb-2;
+    @apply text-gray-300 text-sm leading-snug mb-2 flex-1;
 }
 
 /* CONTEXT TAGS */
@@ -242,7 +237,7 @@ const projects = ref<Project[]>([
 
 /* ACTIONS */
 .project-actions {
-    @apply flex gap-2;
+    @apply flex gap-2 mt-auto;
 }
 
 .btn {

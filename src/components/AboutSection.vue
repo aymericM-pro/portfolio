@@ -3,8 +3,8 @@
 <template>
     <section
         id="about"
-        class="h-screen flex items-center py-12 px-6 relative overflow-hidden"
-    >
+        class="min-h-screen flex items-center py-20 px-6 relative overflow-hidden">
+
         <!-- Décor -->
         <div
             class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-xl"
@@ -22,7 +22,7 @@
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Profil -->
-                <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-10 text-center">
+                <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-6 md:p-10 text-center">
                     <h3 class="text-2xl font-bold text-white mb-6">
                         {{ $t("about.jobTitle") }}
                     </h3>
@@ -43,7 +43,7 @@
                         {{ $t("about.passions.title") }}
                     </h3>
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div v-for="key in ['code','craft','nocode','devops']"
                              :key="key"
                              class="passion-card">
@@ -73,7 +73,7 @@
 }
 
 .section-title {
-    @apply text-5xl font-bold text-white mb-6;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6;
 }
 
 .section-divider {
